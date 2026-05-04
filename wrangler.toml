@@ -1,0 +1,14 @@
+name = "video-cleaner-pro"
+type = "javascript"
+
+[site]
+bucket = "./out"
+entry-point = "workers-site"
+
+[build]
+command = "npm run build"
+
+[http]
+# Important for FFmpeg.wasm to work on Browser
+"Cross-Origin-Opener-Policy" = "same-origin"
+"Cross-Origin-Embedder-Policy" = "require-corp"
