@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEON ENHANCER PRO | ASHISH</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root { --neon: #00f3ff; --accent: #bc13fe; }
+        body { background: #050505; color: white; font-family: 'Inter', sans-serif; }
+        .neon-border { border: 1px solid var(--neon); box-shadow: 0 0 15px rgba(0, 243, 255, 0.2); }
+        .neon-text { text-shadow: 0 0 10px var(--neon); }
+        canvas { touch-action: none; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <main class="flex-grow container mx-auto px-4 py-10">
+        <header class="text-center mb-10">
+            <h1 class="text-5xl font-black italic tracking-tighter neon-text">PRO VIDEO CLEANER</h1>
+            <p class="text-gray-500 tracking-[0.3em] text-xs mt-2 uppercase">Zero-API AI Processing</p>
+        </header>
+
+        <div class="max-w-4xl mx-auto bg-[#0a0a0a] rounded-3xl p-6 neon-border relative">
+            <div id="editor-container" class="relative overflow-hidden rounded-xl bg-black aspect-video flex items-center justify-center">
+                <input type="file" id="videoUpload" class="hidden" accept="video/*">
+                <label for="videoUpload" id="drop-zone" class="cursor-pointer text-center">
+                    <div class="text-6xl mb-4">🚀</div>
+                    <p class="text-cyan-400 font-bold">CLICK TO UPLOAD VIDEO</p>
+                </label>
+                <video id="mainVideo" class="hidden w-full h-full"></video>
+                <canvas id="maskCanvas" class="absolute top-0 left-0 w-full h-full hidden"></canvas>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mt-6">
+                <button onclick="startProcessing()" class="bg-cyan-600 hover:bg-cyan-400 text-black font-black py-4 rounded-xl transition-all active:scale-95 uppercase">Auto AI Remove</button>
+                <button onclick="clearMasks()" class="border border-red-900 text-red-500 font-bold py-4 rounded-xl hover:bg-red-950 transition-all">Clear Masks</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-12 border-t border-zinc-900 bg-black">
+        <div class="text-center">
+            <p class="text-[10px] tracking-[0.5em] text-zinc-600 uppercase mb-2 font-bold">Engineered By</p>
+            <h2 class="text-4xl font-black italic text-white tracking-tighter">
+                ASH<span class="text-cyan-500 drop-shadow-[0_0_10px_#00f3ff]">ISH</span>
+            </h2>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/@ffmpeg/ffmpeg@0.11.6/dist/ffmpeg.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
